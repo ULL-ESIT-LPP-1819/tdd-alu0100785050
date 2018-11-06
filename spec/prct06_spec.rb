@@ -4,6 +4,7 @@ RSpec.describe Prct06 do
 	  @et1 = Etiqueta.new("Bacon","69.30","28.21","27.05","7.19","0.00","0.00","0.00",
 			      "0.00","0.00","14.6","0.6","10.14")
   end
+
   describe "Atributos bien inicializados" do
   	it do 
 	  expect(@et1.alimento).to eq("Bacon")
@@ -21,5 +22,12 @@ RSpec.describe Prct06 do
 	  expect(@et1.vitaminas).to eq("10.14")
 	end
   end
+  
+  describe "Valor energético" do
+	it "El valor energético debe estar definido en un método" do
+	  expect(@et1.valor_energetico).to eq("5137.95KJ/1250.75Kcal")
+	end
+  end
+
 end
 
