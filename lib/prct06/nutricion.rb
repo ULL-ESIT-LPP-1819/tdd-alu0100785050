@@ -1,11 +1,11 @@
 class Etiqueta
-	attr_accessor :etiqueta, :grasas, :saturadas, :mono, :poli, :hidratos, :azucares, 
+	attr_accessor :alimento, :grasas, :saturadas, :mono, :poli, :hidratos, :azucares, 
 			:polial, :almidon, :fibra, :proteinas, :sal, :vitaminas
 
-	def initialize(etiqueta, grasas, saturadas, mono, poli, hidratos, azucares, 
+	def initialize(alimento, grasas, saturadas, mono, poli, hidratos, azucares, 
 		       polial, almidon, fibra, proteinas, sal, vitaminas)
 		
-		@etiqueta = etiqueta
+		@alimento = alimento
 		@grasas = grasas
 		@saturadas = saturadas
 		@mono = mono

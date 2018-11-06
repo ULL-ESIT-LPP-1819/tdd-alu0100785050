@@ -3,7 +3,9 @@ RSpec.describe Prct06 do
   before :each do
 	  @et1 = Etiqueta.new("Bacon","69.30","28.21","27.05","7.19","0.00","0.00","0.00",
 			      "0.00","0.00","14.6","0.6","10.14")
-
+  end
+  describe "Atributos bien inicializados" do
+  	it do 
 	  expect(@et1.alimento).to eq("Bacon")
 	  expect(@et1.grasas).to eq("69.30")
 	  expect(@et1.saturadas).to eq("28.21")
@@ -17,6 +19,7 @@ RSpec.describe Prct06 do
 	  expect(@et1.proteinas).to eq("14.6")
 	  expect(@et1.sal).to eq("0.6")
 	  expect(@et1.vitaminas).to eq("10.14")
+	end
   end
 end
 
