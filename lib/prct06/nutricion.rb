@@ -56,4 +56,11 @@ class Etiqueta
 		((valorEnergeticoKJ.to_f*6)/8400).round(2)
 	end
 
+	def valorEKJporcion
+		((valorEnergeticoKJ.to_f*25)/100).round(2)
+	end
+	
+	def valorEKcalporcion
+                ((valorEnergeticoKcal.to_f*25)/100).round(2)
+        end
 end 

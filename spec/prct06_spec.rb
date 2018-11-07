@@ -55,5 +55,48 @@ RSpec.describe Prct06 do
 		expect(@et1.salIR).to eq(3.67)
 	end
   end
+
+  describe "Valores por porción de 25 gramos" do
+	it "Método valor energético en KJ" do
+		expect(@et1.valorEKJporcion).to eq(1284.49)
+	end
+	it "Método valor energético en Kcal" do
+		expect(@et1.valorEKcalporcion).to eq(311.94)
+	end
+	it "Método obtener grasas" do
+		expect(@et1.grasasporcion).to eq(17.32)
+	end
+	it "Método obtener saturadas" do
+		expect(@et1.saturadasporcion).to eq(7.05)
+	end
+	it "Método obtener monoinsaturadas" do
+		expect(@et1.monoporcion).to eq(6.76)
+	end
+	it "Método obtener poliinsaturadas" do
+		expect(@et1.poliporcion).to eq(1.80)
+	end
+	it "Método obtener hidratos" do
+		expect(@et1.hidratosporcion).to eq(0.00)
+	end
+	it "Método obtener azucares" do
+		expect(@et1.azucaresporcion).to eq(0.00)
+	end
+	it "Método obtener polialcoholes" do
+                expect(@et1.polialcoholesporcion).to eq(0.00)
+        end
+	it "Método obtener almidón" do
+                expect(@et1.almidonporcion).to eq(0.00)
+        end
+	it "Método obtener fibra" do
+                expect(@et1.fibraporcion).to eq(0.00)
+        end
+	it "Método obtener proteinas" do
+		expect(@et1.proteinasporcion).to eq(3.65)
+	end
+	it "Método obtener sal" do
+		expect(@et1.salporcion).to eq(0.15)
+	end
+
+  end
 end
 
