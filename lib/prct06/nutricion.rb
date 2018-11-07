@@ -56,6 +56,7 @@ class Etiqueta
 		((valorEnergeticoKJ.to_f*6)/8400).round(2)
 	end
 
+
 	def valorEKJporcion
 		((valorEnergeticoKJ.to_f*25)/100).round(2)
 	end
@@ -63,4 +64,48 @@ class Etiqueta
 	def valorEKcalporcion
                 ((valorEnergeticoKcal.to_f*25)/100).round(2)
         end
+
+	def grasasporcion
+                ((grasas.to_f*25)/100).round(2)
+        end
+
+	def saturadasporcion
+		((saturadas.to_f*25)/100).round(2)
+	end
+
+	def monoporcion
+		((mono.to_f*25)/100).round(2)
+        end
+
+	def poliporcion
+		((poli.to_f*25)/100).round(2)
+	end
+
+	def hidratosporcion
+		((hidratos.to_f*25)/100).round(2)
+	end
+
+	def azucaresporcion
+		((azucares.to_f*25)/100).round(2)
+	end
+
+	def polialcoholporcion
+		((polial.to_f*25)/100).round(2)
+	end
+	
+	def almidonporcion
+		((almidon.to_f*25)/100).round(2)
+	end
+
+	def fibrasporcion
+		((fibra.to_f*25)/100).round(2)
+	end
+	
+	def proteinasporcion
+		((proteinas.to_f*25)/100).round(2)
+	end
+
+	def salporcion
+		((sal.to_f*25)/100).round(2)
+	end
 end 

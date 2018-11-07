@@ -64,7 +64,7 @@ RSpec.describe Prct06 do
 		expect(@et1.valorEKcalporcion).to eq(311.94)
 	end
 	it "Método obtener grasas" do
-		expect(@et1.grasasporcion).to eq(17.32)
+		expect(@et1.grasasporcion).to eq(17.33)
 	end
 	it "Método obtener saturadas" do
 		expect(@et1.saturadasporcion).to eq(7.05)
@@ -82,13 +82,13 @@ RSpec.describe Prct06 do
 		expect(@et1.azucaresporcion).to eq(0.00)
 	end
 	it "Método obtener polialcoholes" do
-                expect(@et1.polialcoholesporcion).to eq(0.00)
+                expect(@et1.polialcoholporcion).to eq(0.00)
         end
 	it "Método obtener almidón" do
                 expect(@et1.almidonporcion).to eq(0.00)
         end
 	it "Método obtener fibra" do
-                expect(@et1.fibraporcion).to eq(0.00)
+                expect(@et1.fibrasporcion).to eq(0.00)
         end
 	it "Método obtener proteinas" do
 		expect(@et1.proteinasporcion).to eq(3.65)
@@ -96,7 +96,30 @@ RSpec.describe Prct06 do
 	it "Método obtener sal" do
 		expect(@et1.salporcion).to eq(0.15)
 	end
+  end
 
+  describe "IR por porción de 25 gramos" do
+	it "Método porcentaje de valor energético KJ" do
+		expect(@et1.valorEnergeticoKJ).to eq(5137.95)
+	end
+	it "Método porcentaje de grasa" do
+		expect(@et1.grasasIRporcion).to eq(10.7)
+	end
+	it "Método porcentaje de saturadas" do
+		expect(@et1.saturadasIRporcion).to eq(3.06)
+	end
+	it "Método porcentaje de hidratos" do
+		expect(@et1.hidratosIRporcion).to eq(39.75)
+	end
+	it "Método porcentaje de azúcares" do
+		expect(@et1.azucaresIRporcion).to eq(13.76)
+	end
+	it "Método porcentaje de proteínas" do
+		expect(@et1.proteinasIRporcion).to eq(7.65)
+	end
+	it "Método porcentaje de sal" do
+		expect(@et1.salIRporcion).to eq(0.92)
+	end
   end
 end
 
