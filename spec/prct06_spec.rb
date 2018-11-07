@@ -25,7 +25,7 @@ RSpec.describe Prct06 do
   
   describe "Valor energético" do
 	it "El valor energético debe estar definido en un método" do
-	  expect(@et1.valor_energetico).to eq("5137.95KJ/1250.75Kcal")
+		expect(@et1.valorEnergetico).to eq(4.12)
 	end
   end
 
