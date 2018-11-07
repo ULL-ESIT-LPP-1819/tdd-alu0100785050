@@ -31,4 +31,29 @@ class Etiqueta
 		
 		kcal.round(2)
 	end
+
+	def grasaIR
+		((valorEnergeticoKJ.to_f*70)/8400).round(2)
+	end
+
+	def saturadasIR
+		((valorEnergeticoKJ.to_f*20)/8400).round(2)
+	end
+
+	def hidratosIR
+		((valorEnergeticoKJ.to_f*260)/8400).round(2)
+	end
+
+	def azucaresIR
+		((valorEnergeticoKJ.to_f*90)/8400).round(2)
+	end
+
+	def proteinasIR
+		((valorEnergeticoKJ.to_f*50)/8400).round(2)
+	end
+
+	def salIR
+		((valorEnergeticoKJ.to_f*6)/8400).round(2)
+	end
+
 end 
