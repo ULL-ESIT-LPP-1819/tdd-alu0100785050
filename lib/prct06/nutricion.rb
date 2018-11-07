@@ -108,4 +108,29 @@ class Etiqueta
 	def salporcion
 		((sal.to_f*25)/100).round(2)
 	end
+
+	
+	def grasasIRporcion
+		((grasaIR.to_f*25)/100).round(2)
+	end
+
+	def saturadasIRporcion
+		((saturadasIR.to_f*25)/100).round(2)
+	end
+
+	def hidratosIRporcion
+		((hidratosIR.to_f*25)/100).round(2)
+	end
+
+	def azucaresIRporcion
+		((azucaresIR.to_f*25)/100).round(2)
+	end
+
+	def proteinasIRporcion
+		((proteinasIR.to_f*25)/100).round(2)
+	end
+
+	def salIRporcion
+		((salIR.to_f*25)/100).round(2)
+	end
 end 

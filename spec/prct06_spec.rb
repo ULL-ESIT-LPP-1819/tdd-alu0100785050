@@ -103,13 +103,13 @@ RSpec.describe Prct06 do
 		expect(@et1.valorEnergeticoKJ).to eq(5137.95)
 	end
 	it "Método porcentaje de grasa" do
-		expect(@et1.grasasIRporcion).to eq(10.7)
+		expect(@et1.grasasIRporcion).to eq(10.71)
 	end
 	it "Método porcentaje de saturadas" do
 		expect(@et1.saturadasIRporcion).to eq(3.06)
 	end
 	it "Método porcentaje de hidratos" do
-		expect(@et1.hidratosIRporcion).to eq(39.75)
+		expect(@et1.hidratosIRporcion).to eq(39.76)
 	end
 	it "Método porcentaje de azúcares" do
 		expect(@et1.azucaresIRporcion).to eq(13.76)
