@@ -121,5 +121,28 @@ RSpec.describe Prct06 do
 		expect(@et1.salIRporcion).to eq(0.92)
 	end
   end
+
+  describe "Tabla con valores" do
+	it "Método para devolver dos primeras columnas de la tabla como un string" do
+		expect(@et1.to_s2col).to eq("Por 100 g o 100 ml de producto | IR (por 100 g o 100 ml de producto\n" + 
+		" Valor enérgético (kj/kcal) |" + 
+		"#{@et1.valorEnergeticoKJ}/#{@et1.valorEnergeticoKcal} | #{@et1.valorEnergeticoKJ}%|\n" +
+	       	"Grasas de las cuales: | #{@et1.grasas} | #{@et1.grasaIR}%\n" +
+	       	"Saturadas | #{@et1.saturadas} | #{@et1.saturadasIR} |\n" +
+	       	"Monoinsaturadas | #{@et1.mono} | - |\n" +
+	       	"Poliinsaturadas | #{@et1.poli} | - |\n" +
+	       	"Hidratos de carbono de los cuales: #{@et1.hidratos} | #{@et1.hidratosIR} |\n" +
+	       	"Azucares | #{@et1.azucares} | #{@et1.azucaresIR}\n" +
+	       	"Polialcoholes | - |\n" +
+	       	"Almidón | #{@et1.almidon} | - |\n" +
+	       	"Fibra alimentaria | #{@et1.fibra} | - |\n" +
+	       	"Proteinas | #{@et1.proteinas} | #{@et1.proteinasIR} |\n" +
+	       	"Sal | #{@et1.sal} | #{@et1.salIR} |\n" +
+	       	"Vitaminas/mineral | #{@et1.vitaminas} |\n")
+	end
+	#it "Método para devolver la tabla entera como un string" do
+	#	expect(@et1.to_s2).to eq()
+	#end
+  end
 end
 

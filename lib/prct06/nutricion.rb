@@ -133,4 +133,23 @@ class Etiqueta
 	def salIRporcion
 		((salIR.to_f*25)/100).round(2)
 	end
+
+	
+	def to_s2col
+		"Por 100 g o 100 ml de producto | IR (por 100 g o 100 ml de producto)|\n"
+                + "Valor enérgético (kj/kcal) | "
+                #+ "#{valorEnergeticoKJ}/#{valorEnergeticoKcal} | #{valorEnergeticoKJ}%|\n"                	            
+		#+ "Grasas de las cuales: | #{grasas} | #{grasaIR}%\n"
+                #+ "Saturadas | #{saturadas} | #{saturadasIR} |\n"
+                #+ "Monoinsaturadas | #{mono} | - |\n"
+                #+ "Poliinsaturadas | #{poli} | - |\n"
+                #+ "Hidratos de carbono de los cuales: #{hidratos} | #{hidratosIR} |\n"
+                #+ "Azucares | #{azucares} | #{azucaresIR}\n"
+                #+ "Polialcoholes | - |\n"
+                #+ "Almidón | #{almidon} | - |\n"
+                #+ "Fibra alimentaria | #{fibra} | - |\n"
+                #+ "Proteinas | #{proteinas} | #{proteinasIR} |\n"
+                #+ "Sal | #{sal} | #{salIR} |\n"
+                #+ "Vitaminas/mineral | #{vitaminas} |\n"
+	end
 end 
