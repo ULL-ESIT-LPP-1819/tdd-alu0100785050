@@ -54,6 +54,9 @@ RSpec.describe Prct06 do
 	it "Método para porcentaje de sal" do
 		expect(@et1.salIR).to eq(3.67)
 	end
+	it "Método para porcentaje de vitaminas" do
+		expect(@et1.vitaminasIR).to eq(159.03)
+	end
   end
 
   describe "Valores por porción de 25 gramos" do
@@ -96,6 +99,9 @@ RSpec.describe Prct06 do
 	it "Método obtener sal" do
 		expect(@et1.salporcion).to eq(0.15)
 	end
+	it "Método obtener vitaminas" do
+		expect(@et1.vitaminasporcion).to eq(2.54)
+	end
   end
 
   describe "IR por porción de 25 gramos" do
@@ -120,6 +126,9 @@ RSpec.describe Prct06 do
 	it "Método porcentaje de sal" do
 		expect(@et1.salIRporcion).to eq(0.92)
 	end
+	it "Método porcentaje vitaminas" do
+		expect(@et1.vitaminasIRporcion).to eq(39.76)
+	end
   end
 
   describe "Tabla con valores" do
@@ -133,16 +142,37 @@ RSpec.describe Prct06 do
 	       	"Poliinsaturadas | #{@et1.poli} | - |\n" +
 	       	"Hidratos de carbono de los cuales: #{@et1.hidratos} | #{@et1.hidratosIR} |\n" +
 	       	"Azucares | #{@et1.azucares} | #{@et1.azucaresIR}\n" +
-	       	"Polialcoholes | - |\n" +
+		"Polialcoholes | #{@et1.polial} | - |\n" +
 	       	"Almidón | #{@et1.almidon} | - |\n" +
 	       	"Fibra alimentaria | #{@et1.fibra} | - |\n" +
 	       	"Proteinas | #{@et1.proteinas} | #{@et1.proteinasIR} |\n" +
 	       	"Sal | #{@et1.sal} | #{@et1.salIR} |\n" +
 	       	"Vitaminas/mineral | #{@et1.vitaminas} |\n")
 	end
-	#it "Método para devolver la tabla entera como un string" do
-	#	expect(@et1.to_s2).to eq()
-	#end
+	it "Método para devolver la tabla entera como un string" do
+		expect(@et1.to_sentera).to eq("Por 100 g o 100 ml de producto | IR (por 100 g o 100 ml de producto) | " + 
+		"Por porción de 25 g | IR (por porción de 25 g de producto) |\n" +
+                " Valor energético (kj/kcal) | " +
+                "#{@et1.valorEnergeticoKJ}/#{@et1.valorEnergeticoKcal} | #{@et1.valorEnergeticoKJ}% |" + 
+		" #{@et1.valorEKJporcion} | #{@et1.valorEKcalporcion}\n" +
+		"Grasas de las cuales: | #{@et1.grasas} | #{@et1.grasaIR}% | #{@et1.grasasporcion} | " + 
+		"#{@et1.grasasIRporcion}\n" +
+		"Saturadas | #{@et1.saturadas} | #{@et1.saturadasIR}% | #{@et1.saturadasporcion} | " +
+	       	"#{@et1.saturadasIRporcion}\n" +
+		"Monoinsaturadas | #{@et1.mono} | - | #{@et1.monoporcion} | - |\n" +
+		"Poliinsaturadas | #{@et1.poli} | - | #{@et1.poliporcion} | - |\n" +
+                "Hidratos de carbono de los cuales: #{@et1.hidratos} | #{@et1.hidratosIR} | " +
+		"#{@et1.hidratosporcion} | #{@et1.hidratosIRporcion} |\n" +
+		"Azucares | #{@et1.azucares} | #{@et1.azucaresIR} | #{@et1.azucaresporcion} | #{@et1.azucaresIRporcion} |" +
+		"Polialcoholes | #{@et1.polial} | - | #{@et1.polialcoholporcion} | - |\n" +
+		"Almidón | #{@et1.almidon} | - | #{@et1.almidonporcion} | - |\n" +
+		"Fibra alimentaria | #{@et1.fibra} | - | #{@et1.fibrasporcion} | - |\n" +
+		"Proteinas | #{@et1.proteinas} | #{@et1.proteinasIR} | #{@et1.proteinasporcion} | " + 
+		"#{@et1.proteinasIRporcion} |\n" +
+		"Sal | #{@et1.sal} | #{@et1.salIR} | #{@et1.salporcion} | #{@et1.salIRporcion} |\n" +
+		"Vitaminas/mineral | #{@et1.vitaminas} | #{@et1.vitaminasIR} | #{@et1.vitaminasporcion} | " +
+		"#{@et1.vitaminasIRporcion} |")
+	end
   end
 end
 

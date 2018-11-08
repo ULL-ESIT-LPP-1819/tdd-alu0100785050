@@ -56,6 +56,10 @@ class Etiqueta
 		((valorEnergeticoKJ.to_f*6)/8400).round(2)
 	end
 
+	def vitaminasIR
+		((valorEnergeticoKJ.to_f*260)/8400).round(2)
+	end
+
 
 	def valorEKJporcion
 		((valorEnergeticoKJ.to_f*25)/100).round(2)
@@ -109,6 +113,10 @@ class Etiqueta
 		((sal.to_f*25)/100).round(2)
 	end
 
+	def vitaminasporcion
+		((vitaminas.to_f*25)/100).round(2)
+	end
+
 	
 	def grasasIRporcion
 		((grasaIR.to_f*25)/100).round(2)
@@ -134,10 +142,14 @@ class Etiqueta
 		((salIR.to_f*25)/100).round(2)
 	end
 
+	def vitaminasIRporcion
+		((vitaminasIR.to_f*25)/100).round(2)
+	end
+
 	
 	def to_s2col
 		"Por 100 g o 100 ml de producto | IR (por 100 g o 100 ml de producto) |\n " +
-                "Valor energético (kj/kcal) | " + 
+                "Valor energético (kj/kcal) | " +  
                 "#{valorEnergeticoKJ}/#{valorEnergeticoKcal} | #{valorEnergeticoKJ}% |\n" +
                 "Grasas de las cuales: | #{grasas} | #{grasaIR}%\n" +
                 "Saturadas | #{saturadas} | #{saturadasIR} |\n" +
@@ -145,11 +157,36 @@ class Etiqueta
                 "Poliinsaturadas | #{poli} | - |\n" + 
                 "Hidratos de carbono de los cuales: #{hidratos} | #{hidratosIR} |\n" +
                 "Azucares | #{azucares} | #{azucaresIR}\n" +
-                "Polialcoholes | - |\n" +
+                "Polialcoholes | #{polial} | - |\n" +
                 "Almidón | #{almidon} | - |\n" +
                 "Fibra alimentaria | #{fibra} | - |\n" + 
                 "Proteinas | #{proteinas} | #{proteinasIR} |\n" +
                 "Sal | #{sal} | #{salIR} |\n" +
                 "Vitaminas/mineral | #{vitaminas} |\n"
+	end
+
+	def to_sentera
+		"Por 100 g o 100 ml de producto | IR (por 100 g o 100 ml de producto) | " +
+                "Por porción de 25 g | IR (por porción de 25 g de producto) |\n" +
+                " Valor energético (kj/kcal) | " +
+                "#{valorEnergeticoKJ}/#{valorEnergeticoKcal} | #{valorEnergeticoKJ}% |" +
+                " #{valorEKJporcion} | #{valorEKcalporcion}\n" +
+                "Grasas de las cuales: | #{grasas} | #{grasaIR}% | #{grasasporcion} | " +
+                "#{grasasIRporcion}\n" +
+                "Saturadas | #{saturadas} | #{saturadasIR}% | #{saturadasporcion} | " + 
+                "#{saturadasIRporcion}\n" +
+                "Monoinsaturadas | #{mono} | - | #{monoporcion} | - |\n" +
+                "Poliinsaturadas | #{poli} | - | #{poliporcion} | - |\n" +
+                "Hidratos de carbono de los cuales: #{hidratos} | #{hidratosIR} | " +
+                "#{hidratosporcion} | #{hidratosIRporcion} |\n" +
+                "Azucares | #{azucares} | #{azucaresIR} | #{azucaresporcion} | #{azucaresIRporcion} |" +
+                "Polialcoholes | #{polial} | - | #{polialcoholporcion} | - |\n" +
+                "Almidón | #{almidon} | - | #{almidonporcion} | - |\n" +
+                "Fibra alimentaria | #{fibra} | - | #{fibrasporcion} | - |\n" +
+                "Proteinas | #{proteinas} | #{proteinasIR} | #{proteinasporcion} | " +
+                "#{proteinasIRporcion} |\n" +
+                "Sal | #{sal} | #{salIR} | #{salporcion} | #{salIRporcion} |\n" +
+                "Vitaminas/mineral | #{vitaminas} | #{vitaminasIR} | #{vitaminasporcion} | " +
+                "#{vitaminasIRporcion} |"
 	end
 end 
