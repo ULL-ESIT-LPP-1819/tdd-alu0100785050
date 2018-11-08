@@ -124,9 +124,9 @@ RSpec.describe Prct06 do
 
   describe "Tabla con valores" do
 	it "Método para devolver dos primeras columnas de la tabla como un string" do
-		expect(@et1.to_s2col).to eq("Por 100 g o 100 ml de producto | IR (por 100 g o 100 ml de producto\n" + 
-		" Valor enérgético (kj/kcal) |" + 
-		"#{@et1.valorEnergeticoKJ}/#{@et1.valorEnergeticoKcal} | #{@et1.valorEnergeticoKJ}%|\n" +
+		expect(@et1.to_s2col).to eq("Por 100 g o 100 ml de producto | IR (por 100 g o 100 ml de producto) |\n" + 
+		" Valor energético (kj/kcal) | " + 
+		"#{@et1.valorEnergeticoKJ}/#{@et1.valorEnergeticoKcal} | #{@et1.valorEnergeticoKJ}% |\n" +
 	       	"Grasas de las cuales: | #{@et1.grasas} | #{@et1.grasaIR}%\n" +
 	       	"Saturadas | #{@et1.saturadas} | #{@et1.saturadasIR} |\n" +
 	       	"Monoinsaturadas | #{@et1.mono} | - |\n" +
