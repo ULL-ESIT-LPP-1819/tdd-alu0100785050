@@ -18,7 +18,7 @@ RSpec.describe Lista do
 
 	it "Insertar por la cola" do
 	  @lista_prueba.insert_tail(@et1)
-	  expect(@lista_prueba.get_value).to eq(@et1)
+	  expect(@lista_prueba.tail.value).to eq(@et1)
 	end
   end
 end

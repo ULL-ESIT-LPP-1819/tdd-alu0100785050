@@ -9,10 +9,16 @@ class Lista
 	end
 
 	def empty
-		if (head == nil) && (tail == nil)
-			true
+		return (head == nil) && (tail == nil)
+	end
+
+	def insert_tail(value)
+		if(empty)
+			@head = Node.new(value,nil,nil)
+			@tail = @head
 		else
-			false
-		end
+			@tail[:next] = Node.new(value,nil,@tail)
+			@tail = @tail[:next]
+		end			
 	end
 end
