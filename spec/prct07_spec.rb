@@ -15,5 +15,10 @@ RSpec.describe Lista do
 	it "Lista vacía" do
 	  expect(@lista_prueba.empty).to eq(true)
   	end
+
+	it "Insertar por la cola" do
+	  @lista_prueba.insert_tail(@et1)
+	  expect(@lista_prueba.get_value).to eq(@et1)
+	end
   end
 end
