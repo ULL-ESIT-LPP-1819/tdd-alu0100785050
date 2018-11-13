@@ -7,4 +7,12 @@ class Lista
 		@head = nil
 		@tail = nil
 	end
+
+	def empty
+		if (head == nil) && (tail == nil)
+			true
+		else
+			false
+		end
+	end
 end
