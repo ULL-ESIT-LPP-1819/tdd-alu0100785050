@@ -28,4 +28,5 @@ class Lista
 	        @head[:prev] = nil			
 		return aux
 	end
+			
 end

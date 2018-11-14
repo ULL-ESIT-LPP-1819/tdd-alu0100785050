@@ -31,9 +31,8 @@ RSpec.describe Lista do
 	  expect(@lista_prueba.extract_head).to eq(@et1)
 	end
 
-	it "Método to_s para pasar a string" do
-	  @lista_prueba.insert_tail(@et3)
-	  expect(@lista_prueba.to_s).to eq("(Tofu,4.78,0.69,1.06,2.70,3.30,0.00,0.00,0.00,0.30,8.08,3.80,20.00)")
+	it "Método para recorrer la lista" do
+	  expect(@lista_prueba.recorrer_lista).to eq(@et1)
 	end
   end
 end
