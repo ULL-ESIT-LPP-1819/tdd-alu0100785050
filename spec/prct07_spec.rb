@@ -12,6 +12,10 @@ RSpec.describe Lista do
 		@lista_prueba = Lista.new()
 	end
 	
+	it "Existe un constructor" do
+	  lista_ejemplo = Lista.new()
+	end
+
 	it "Lista vacía" do
 	  expect(@lista_prueba.empty).to eq(true)
   	end
