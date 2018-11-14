@@ -21,4 +21,11 @@ class Lista
 			@tail = @tail[:next]
 		end			
 	end
+
+	def extract_head
+		aux = @head.value
+		@head = @head.next
+		@head.prev = nil
+		return aux
+	end
 end
