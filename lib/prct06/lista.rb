@@ -2,6 +2,7 @@ Node = Struct.new(:value, :next, :prev)
 
 class Lista
 	attr_reader :head, :tail
+	attr_accessor :node
 
 	def initialize
 		@head = nil
@@ -23,10 +24,13 @@ class Lista
 	end
 
 	def extract_head
-		aux = @head[:value]
-		@head = @head[:next]
-	        @head[:prev] = nil			
+		aux = @head.value
+		if(@head == @tail) 
+		  @head,@tail = nil
+		else 
+		  @head = @head[:next]
+		  @head[:prev] = nil
+		end		
 		return aux
 	end
-			
 end

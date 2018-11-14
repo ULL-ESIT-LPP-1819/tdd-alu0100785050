@@ -31,8 +31,43 @@ RSpec.describe Lista do
 	  expect(@lista_prueba.extract_head).to eq(@et1)
 	end
 
-	it "Método para recorrer la lista" do
-	  expect(@lista_prueba.recorrer_lista).to eq(@et1)
+	it "Método para clasificar la sal por gramos" do
+	  @lista_prueba.insert_tail(@et1)
+          @lista_prueba.insert_tail(@et2)
+ 	  @lista_prueba.insert_tail(@et3)
+	  @lista_prueba.insert_tail(@et4)
+          @lista_prueba.insert_tail(@et5)
+		
+	  expect(@lista_prueba.extract_head.sal).to eq(0.6)
+	  expect(@lista_prueba.extract_head.sal).to eq(1.1)
+	  expect(@lista_prueba.extract_head.sal).to eq(3.80)
+	  expect(@lista_prueba.extract_head.sal).to eq(6.7)
+	  expect(@lista_prueba.extract_head.sal).to eq(0.8)
+
+	  @lista_prueba.insert_tail(@et1)
+          @lista_prueba.insert_tail(@et2)
+          @lista_prueba.insert_tail(@et3)
+          @lista_prueba.insert_tail(@et4)
+          @lista_prueba.insert_tail(@et5)
+
+	  salbuena = []
+	  salmala = []
+
+	  while(@lista_prueba.empty == false) do
+		  sal = @lista_prueba.extract_head.sal
+
+		  if(sal <= 6)
+			  salbuena.push(sal)
+		  elsif(sal > 6)
+			  salmala.push(sal)
+		  end
+		  
+	  end
+
+	  expect(salmala).to eq([6.7])
+	  expect(salbuena).to eq([0.6,1.1,3.8,0.8])
+	  
+	  
 	end
   end
 end
