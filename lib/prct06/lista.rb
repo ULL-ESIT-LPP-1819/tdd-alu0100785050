@@ -23,9 +23,9 @@ class Lista
 	end
 
 	def extract_head
-		aux = @head.value
-		@head = @head.next
-		@head.prev = nil
+		aux = @head[:value]
+		@head = @head[:next]
+	        @head[:prev] = nil			
 		return aux
 	end
 end

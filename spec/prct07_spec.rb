@@ -22,8 +22,9 @@ RSpec.describe Lista do
 	end
 
 	it "Extraer por el head" do
-	  @lista_prueba.extract_head
-	  expect(@lista_prueba.head.value).to eq(head.next.value)
+	  @lista_prueba.insert_tail(@et1)
+	  @lista_prueba.insert_tail(@et2)
+	  expect(@lista_prueba.extract_head).to eq(@et1)
 	end
   end
 end
