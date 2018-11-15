@@ -33,4 +33,16 @@ class Lista
 		end		
 		return aux
 	end
+
+	def to_s
+		string = "("
+		aux = @head
+		while(aux != nil) do
+			string += "#{aux.to_s}"
+			@aux = @aux.next
+		end	
+		string += ")"
+		return string
+	end
+
 end

@@ -69,5 +69,10 @@ RSpec.describe Lista do
 	  
 	  
 	end
+
+	it "Método to_s para pasarlo a string" do
+		@lista_prueba.insert_tail(@et1)
+		expect(@lista_prueba.extract_head.to_s).to eq(@et1.to_s)
+	end
   end
 end
