@@ -17,7 +17,7 @@ RSpec.describe Lista do
 	end
 
 	it "Lista vacía" do
-	  expect(@lista_prueba.empty).to eq(true)
+	  expect(@lista_prueba.empty?).to eq(true)
   	end
 
 	it "Insertar por la cola" do
@@ -53,7 +53,7 @@ RSpec.describe Lista do
 	  salbuena = []
 	  salmala = []
 
-	  while(@lista_prueba.empty == false) do
+	  while(@lista_prueba.empty? == false) do
 		  sal = @lista_prueba.extract_head.sal
 
 		  if(sal <= 6)
