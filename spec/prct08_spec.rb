@@ -3,7 +3,7 @@ require "spec_helper"
 RSpec.describe "Test herencia - Paciente" do
 
   before :each do
-    @paciente1 = Paciente.new(1.78,70,95)
+    @paciente1 = Paciente.new("Lucas","Perez",45,1,85,1.78,70,95)
     @individuo1 = Individuo.new(45,"Lucas","Perez",1,85)
   end
 
@@ -25,12 +25,12 @@ RSpec.describe "Test herencia - Paciente" do
   end
 
   describe "Métodos to_s" do
+	it "Método to_s para individuo" do
+                expect(@individuo1.to_s).to eq("Edad: 45 -- Nombre: Lucas -- Apellidos: Perez -- Sexo: 1 -- Peso: 85")
+        end
+
 	it "Método to_s para paciente" do
 		expect(@paciente1.to_s).to eq("Edad: 45 -- Nombre: Lucas -- Apellidos: Perez -- Sexo: 1 -- Peso: 85 -- Talla: 1.78 -- Circunferencia Cintura: 70 -- Circunferencia Cadera: 95")	
-	end
-	
-	it "Método to_s para individuo" do
-		expect(@individuo1.to_s).to eq("Edad: 45 -- Nombre: Lucas -- Apellidos: Perez -- Sexo: 1 -- Peso: 85")	
-	end
+	end	
   end
 end

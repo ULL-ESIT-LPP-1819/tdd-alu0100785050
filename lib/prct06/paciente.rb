@@ -1,7 +1,7 @@
 class Paciente < Individuo
-	attr_accessor :talla, :circun_cintu, :circun_cadera
+	attr_accessor :edad, :sexo, :peso, :talla, :circun_cintu, :circun_cadera
 
-	def initialize (talla, circun_cintu, circun_cadera)
+	def initialize (nombre, apellidos, edad, sexo, peso, talla, circun_cintu, circun_cadera)
 		super(edad,nombre,apellidos,sexo,peso)
 		@talla = talla
 		@circun_cintu = circun_cintu
@@ -104,6 +104,6 @@ class Paciente < Individuo
 
 	def to_s
 		super().to_s +
-		" -- Talla: #{@talla} -- Circunferencia Cintura: #{@circun_cintu} -- Circunferencia Cadera: #{@circun_cadera})"
+		" -- Talla: #{@talla} -- Circunferencia Cintura: #{@circun_cintu} -- Circunferencia Cadera: #{@circun_cadera}"
 	end
 end
