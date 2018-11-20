@@ -5,7 +5,7 @@ RSpec.describe "Test herencia - Paciente" do
 	
 	before :each do
 		@paciente1 = Paciente.new(45,0,58,1.78,70,95)
-		@individuo1 = Individuo.new("Lucas","Perez",1,85)
+		@individuo1 = Individuo.new(45,"Lucas","Perez",1,85)
 	end
 
 	it "Método initialize paciente" do

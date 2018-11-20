@@ -2,8 +2,7 @@ class Paciente < Individuo
 	attr_accessor :edad, :sexo, :peso, :talla, :circun_cintu, :circun_cadera
 
 	def initialize (edad, sexo, peso, talla, circun_cintu, circun_cadera)
-		#super(nombre,apellidos,sexo,peso)
-		@peso = peso
+		super(edad,nombre,apellidos,sexo,peso)
 		@talla = talla
 		@circun_cintu = circun_cintu
 		@circun_cadera = circun_cadera

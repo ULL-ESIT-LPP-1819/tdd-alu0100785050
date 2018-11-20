@@ -1,7 +1,8 @@
 class Individuo 
-	attr_accessor :nombre, :apellidos, :sexo, :peso
+	attr_accessor :edad, :nombre, :apellidos, :sexo, :peso
 	
-	def initialize(nombre,apellidos,sexo,peso)
+	def initialize(edad,nombre,apellidos,sexo,peso)
+		@edad = edad
 		@nombre = nombre
 		@apellidos = apellidos
 		@sexo = sexo
@@ -9,6 +10,6 @@ class Individuo
 	end
 
 	def to_s
-		"Nombre: #{@nombre} -- Apellidos: #{@apellidos} -- Sexo: #{@sexo} -- Peso: #{@peso}"
+		"Edad: #{@edad} -- Nombre: #{@nombre} -- Apellidos: #{@apellidos} -- Sexo: #{@sexo} -- Peso: #{@peso}"
 	end
 end
