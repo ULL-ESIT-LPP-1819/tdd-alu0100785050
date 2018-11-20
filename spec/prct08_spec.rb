@@ -40,6 +40,29 @@ RSpec.describe "Test herencia - Paciente" do
 	end	
   end
 
+  describe "Pruebas para comprobar tipos, clases y jerarquías" do
+  	it "Comprobar clases" do
+		expect(@paciente1.class).to eq(Paciente)
+		expect(@individuo1.class).to eq(Individuo)
+		#expect(@paciente1.superclass).to eq(Individuo)
+	end
+	it "Comprobar métodos dentro de clases" do
+		expect(@paciente2.respond_to?('imc')).to eq(true)
+		expect(@paciente2.respond_to?('to_s')).to eq(true)
+		expect(@paciente2.respond_to?('rss')).to eq(false)
+		expect(@individuo2.respond_to?('to_s')).to eq(true)
+	end
+	it "Comprobar el tipo de los métodos" do
+		expect(@individuo4.is_a?(Object)).to eq(true)
+		expect(@paciente3.is_a?(Individuo)).to eq(true)
+		expect(@paciente4.is_a?(Object)).to eq(true)
+		expect(@individuo1.instance_of? Individuo).to eq(true)
+		expect(@paciente4.instance_of? Paciente).to eq(true)
+	end
+
+	
+  end
+
   describe "Lista individuos" do
 	it "Clasificación de índice de masa corporal" do
 	  @lista.insert_tail(@paciente1)
