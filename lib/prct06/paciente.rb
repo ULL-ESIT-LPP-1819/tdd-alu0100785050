@@ -11,17 +11,17 @@ class Paciente < Individuo
 	def imc
 		num = (@peso/(@talla*@talla)).round(2)
 		if num < 18.5
-			"(#{num})" #- Bajo peso"
+			num #- Bajo peso"
 		elsif num > 18.5 and num < 24.9
-			"(#{num})" #- Adecuado"
+			num #- Adecuado"
 		elsif num > 25.0 and num < 29.9
-			"(#{num})"  #- Sobrepeso"
+			num  #- Sobrepeso"
 		elsif num > 30.0 and num < 34.9
-			"(#{num})" #Obesidad grado 1"
+			num #Obesidad grado 1"
 		elsif num > 35.0 and num < 39.9
-			"(#{num})" #- Obesidad grado 2"
+			num #- Obesidad grado 2"
 		elsif num > 40
-			"(#{num})" #- Obesidad grado 2"
+			num #- Obesidad grado 2"
 		end			
 	end
 
