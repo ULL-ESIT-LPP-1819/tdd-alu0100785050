@@ -103,6 +103,7 @@ class Paciente < Individuo
 	end
 
 	def to_s
-		"(#{@edad},#{@sexo},#{@peso},#{@talla},#{@circun_cintu},#{@circun_cadera})"
+		super().to_s +
+		" -- Talla: #{@talla} -- Circunferencia Cintura: #{@circun_cintu} -- Circunferencia Cadera: #{@circun_cadera})"
 	end
 end
