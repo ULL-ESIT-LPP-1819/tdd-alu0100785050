@@ -90,6 +90,12 @@ RSpec.describe Lista do
 
 			expect(aux).to eq([@et3,@et4])
 		end
+		it "Método max" do
+			@lista_prueba.insert_tail(@et2)
+			@lista_prueba.insert_tail(@et3)
+
+			expect(@lista_prueba.max).to eq(@et2)
+		end
 
 	end
   end
