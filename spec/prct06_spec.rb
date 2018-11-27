@@ -174,5 +174,21 @@ RSpec.describe Prct06 do
 		"#{@et1.vitaminasIRporcion} |")
 	end
   end
+
+
+  describe "Comparable" do
+	it "Menor <" do
+  		@et2 = Etiqueta.new("Pan",4.70,1.00,1.40,1.31,47.50,0.00,0.00,0.00,4.10,7.54,1.1,27.00)
+		expect(@et1.hidratos < @et2.hidratos).to eq(false)
+	end
+	it "Mayor >" do
+		@et2 = Etiqueta.new("Pan",4.70,1.00,1.40,1.31,47.50,0.00,0.00,0.00,4.10,7.54,1.1,27.00)
+		expect(@et1.hidratos > @et2.hidratos).to eq(true)
+	end
+	it "Igual =" do
+		@et2 = Etiqueta.new("Pan",4.70,1.00,1.40,1.31,47.50,0.00,0.00,0.00,4.10,7.54,1.1,27.00)
+		expect(@et1.hidratos = @et2.hidratos).to eq(false)
+	end
+  end
 end
 
