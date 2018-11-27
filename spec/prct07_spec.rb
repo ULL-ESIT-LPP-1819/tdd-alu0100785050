@@ -10,6 +10,9 @@ RSpec.describe Lista do
 		@et4 = Etiqueta.new("Queso",32.20,19.57,8.14,0.74,0.36,0.04,0.00,0.00,0.00,25.39,6.7,20.00)
 		@et5 = Etiqueta.new("Salsa Barbacoa",1.80,0.30,0.80,0.70,11.60,0.00,0.00,0.00,0.60,1.80,0.8,25.00)
 		@lista_prueba = Lista.new()
+
+		@paciente1 = Paciente.new("Sara","Luis",45,0,85,1.78,70,95)
+                @paciente2 = Paciente.new("Jose","Jimenez",25,1,100,1.67,95,92)
 	end
 	
 	it "Existe un constructor" do
@@ -112,9 +115,6 @@ RSpec.describe Lista do
 		end
 	end
 	context "Enumerable individuos" do
-		@paciente1 = Paciente.new("Sara","Luis",45,0,85,1.78,70,95)
-		@paciente2 = Paciente.new("Jose","Jimenez",25,1,100,1.67,95,92)
-
 		it "Método collect" do
 			@lista_prueba.insert_tail(@paciente1)
 			@lista_prueba.insert_tail(@pacient2)
@@ -126,9 +126,9 @@ RSpec.describe Lista do
 			@lista_prueba.insert_tail(@paciente1)
 			@lista_prueba.insert_tail(@paciente2)
 
-			aux = @lista_prueba.select{|a| a.valorEnergeticoKJ < 400 }
+			aux = @lista_prueba.select{|a| a.imc <45}
 
-			expect(aux).to eq([@paciente1])
+			expect(aux).to eq([@paciente1,@paciente2])
 		end
 	end
   end
