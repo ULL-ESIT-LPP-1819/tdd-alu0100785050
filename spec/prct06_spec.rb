@@ -4,6 +4,7 @@ RSpec.describe Prct06 do
 	  @et1 = Etiqueta.new("Bacon","69.30","28.21","27.05","7.19","0.00","0.00","0.00",
 			      "0.00","0.00","14.6","0.6","10.14")
 	   @et2 = Etiqueta.new("Pan",4.70,1.00,1.40,1.31,47.50,0.00,0.00,0.00,4.10,7.54,1.1,27.00)
+  	 @et3 = Etiqueta.new("Tofu",4.78,0.69,1.06,2.70,3.30,0.00,0.00,0.00,0.30,8.08,3.80,20.00)
   end
 
   describe "Initialize" do
@@ -186,6 +187,15 @@ RSpec.describe Prct06 do
 	end
 	it "Igual =" do
 		expect(@et1.valorEnergeticoKJ == @et2.valorEnergeticoKJ).to eq(false)
+	end
+	it "Between" do
+		expect(@et1.between?(@et2,@et3)).to eq(false)
+	end
+	it "Menor o igual <=" do
+		expect(@et1.valorEnergeticoKJ <= @et2.valorEnergeticoKJ).to eq(false)
+	end
+	it "Mayor o igual >=" do
+		expect(@et1.valorEnergeticoKJ >= @et2.valorEnergeticoKJ).to eq(true)
 	end
   end
 end
