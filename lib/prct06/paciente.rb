@@ -1,4 +1,7 @@
 class Paciente < Individuo
+	
+	include Comparable
+
 	attr_accessor :edad, :sexo, :peso, :talla, :circun_cintu, :circun_cadera
 
 	def initialize (nombre, apellidos, edad, sexo, peso, talla, circun_cintu, circun_cadera)
@@ -105,5 +108,9 @@ class Paciente < Individuo
 	def to_s
 		super().to_s +
 		" -- Talla: #{@talla} -- Circunferencia Cintura: #{@circun_cintu} -- Circunferencia Cadera: #{@circun_cadera}"
+	end
+
+	def <=>(aux)
+		self.imc <=> aux.imc
 	end
 end

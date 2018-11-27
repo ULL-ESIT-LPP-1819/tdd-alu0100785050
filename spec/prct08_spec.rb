@@ -102,4 +102,16 @@ RSpec.describe "Test herencia - Paciente" do
 
         end 
   end
+
+  describe "Comparable" do
+	it "Menor <" do
+		expect(@paciente1.imc < @paciente2.imc).to eq(false)
+	end
+	it "Mayor >" do
+		expect(@paciente1.imc > @paciente2.imc).to eq(true)
+	end
+	it "Igual =" do
+		expect(@paciente1.imc == @paciente2.imc).to eq(false)
+	end
+  end
 end
