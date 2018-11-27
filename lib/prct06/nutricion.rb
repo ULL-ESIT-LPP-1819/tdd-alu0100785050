@@ -1,4 +1,7 @@
 class Etiqueta
+
+	include Comparable
+
 	attr_accessor :alimento, :grasas, :saturadas, :mono, :poli, :hidratos, :azucares, 
 			:polial, :almidon, :fibra, :proteinas, :sal, :vitaminas
 
