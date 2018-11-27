@@ -130,6 +130,26 @@ RSpec.describe Lista do
 
 			expect(aux).to eq([@paciente1,@paciente2])
 		end
+		it "Método max" do
+			@lista_prueba.insert_tail(@paciente1)
+			@lista_prueba.insert_tail(@paciente2)
+
+			expect(@lista_prueba.max).to eq(@paciente2)
+		end
+		it "Método min" do
+			@lista_prueba.insert_tail(@paciente1)
+			@lista_prueba.insert_tail(@paciente2)
+
+			expect(@lista_prueba.min).to eq(@paciente1)
+		end
+		it "Método sort" do
+			@lista_prueba.insert_tail(@paciente1)
+			@lista_prueba.insert_tail(@paciente2)
+
+			aux = @lista_prueba.sort{|x,y| y<=>x}
+
+			expect(aux).to eq([@paciente2,@paciente1])
+		end
 	end
   end
 end
