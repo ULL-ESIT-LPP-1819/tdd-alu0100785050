@@ -74,13 +74,23 @@ RSpec.describe Lista do
 		@lista_prueba.insert_tail(@et1)
 		expect(@lista_prueba.extract_head.to_s).to eq(@et1.to_s)
 	end
+	context "Enumerable" do
+  		it "Método collect" do
+			@lista_prueba.insert_tail(@et1)
+			@lista_prueba.insert_tail(@et2)
+			aux = @lista_prueba.collect{"holamundo"}
 
-  	it "Método collect" do
-		@lista_prueba.insert_tail(@et1)
-		@lista_prueba.insert_tail(@et2)
-		aux = @lista_prueba.collect{"holamundo"}
+			expect(aux).to eq(["holamundo","holamundo"])
+		end
+		it "Método select" do
+			@lista_prueba.insert_tail(@et3)
+			@lista_prueba.insert_tail(@et4)
+			
+			aux = @lista_prueba.select{|a| a.valorEnergeticoKJ > 200 }
 
-		expect(aux).to eq(["holamundo","holamundo"])
+			expect(aux).to eq([@et3,@et4])
+		end
+
 	end
   end
 end
