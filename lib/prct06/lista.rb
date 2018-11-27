@@ -4,6 +4,8 @@ class Lista
 	attr_reader :head, :tail
 	attr_accessor :node
 
+	include Enumerable
+
 	def initialize
 		@head = nil
 		@tail = nil
@@ -44,5 +46,12 @@ class Lista
 		string += ")"
 		return string
 	end
-
+	
+	def each
+		aux = @head
+		while aux != nil do
+			yield aux.value
+			aux = aux.next
+		end
+	end
 end
