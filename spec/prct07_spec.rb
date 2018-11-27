@@ -74,7 +74,7 @@ RSpec.describe Lista do
 		@lista_prueba.insert_tail(@et1)
 		expect(@lista_prueba.extract_head.to_s).to eq(@et1.to_s)
 	end
-	context "Enumerable" do
+	context "Enumerable etiquetas" do
   		it "Método collect" do
 			@lista_prueba.insert_tail(@et1)
 			@lista_prueba.insert_tail(@et2)
@@ -109,6 +109,26 @@ RSpec.describe Lista do
 			aux = @lista_prueba.sort{|x,y| y<=>x}
 
 			expect(aux).to eq([@et1,@et3])
+		end
+	end
+	context "Enumerable individuos" do
+		@paciente1 = Paciente.new("Sara","Luis",45,0,85,1.78,70,95)
+		@paciente2 = Paciente.new("Jose","Jimenez",25,1,100,1.67,95,92)
+
+		it "Método collect" do
+			@lista_prueba.insert_tail(@paciente1)
+			@lista_prueba.insert_tail(@pacient2)
+
+			aux = @lista_prueba.collect{"adiosmundo"}
+			expect(aux).to eq(["adiosmundo","adiosmundo"])
+		end
+		it "Método select" do
+			@lista_prueba.insert_tail(@paciente1)
+			@lista_prueba.insert_tail(@paciente2)
+
+			aux = @lista_prueba.select{|a| a.valorEnergeticoKJ < 400 }
+
+			expect(aux).to eq([@paciente1])
 		end
 	end
   end
