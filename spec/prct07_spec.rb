@@ -75,4 +75,14 @@ RSpec.describe Lista do
 		expect(@lista_prueba.extract_head.to_s).to eq(@et1.to_s)
 	end
   end
+
+  describe "Enumerable" do
+  	it "Método collect" do
+		@lista_prueba.insert_tail(@et1)
+		@lista_prueba.insert_tail(@et2)
+		@lista_prueba.collect{"holamundo"}
+
+		expect(@lista_prueba).to eq("holamundo","holamundo","holamundo","holamundo","holamundo","holamundo","holamundo","holamundo","holamundo","holamundo","holamundo","holamundo","holamundo")
+	end
+  end
 end
