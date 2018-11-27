@@ -96,7 +96,20 @@ RSpec.describe Lista do
 
 			expect(@lista_prueba.max).to eq(@et2)
 		end
+		it "Método min" do
+			@lista_prueba.insert_tail(@et1)
+			@lista_prueba.insert_tail(@et5)
 
+			expect(@lista_prueba.min).to eq(@et5)
+		end
+		it "Método sort" do
+			@lista_prueba.insert_tail(@et3)
+			@lista_prueba.insert_tail(@et1)
+
+			aux = @lista_prueba.sort{|x,y| y<=>x}
+
+			expect(aux).to eq([@et1,@et3])
+		end
 	end
   end
 end
