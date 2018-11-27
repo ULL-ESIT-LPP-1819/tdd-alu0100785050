@@ -192,4 +192,8 @@ class Etiqueta
                 "Vitaminas/mineral | #{vitaminas} | #{vitaminasIR} | #{vitaminasporcion} | " +
                 "#{vitaminasIRporcion} |"
 	end
+
+	def <=>(aux)
+		return self.valorEnergeticoKJ <=> aux.valorEnergeticoKJ
+	end
 end 

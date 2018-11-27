@@ -3,6 +3,7 @@ RSpec.describe Prct06 do
   before :each do
 	  @et1 = Etiqueta.new("Bacon","69.30","28.21","27.05","7.19","0.00","0.00","0.00",
 			      "0.00","0.00","14.6","0.6","10.14")
+	   @et2 = Etiqueta.new("Pan",4.70,1.00,1.40,1.31,47.50,0.00,0.00,0.00,4.10,7.54,1.1,27.00)
   end
 
   describe "Initialize" do
@@ -178,16 +179,13 @@ RSpec.describe Prct06 do
 
   describe "Comparable" do
 	it "Menor <" do
-  		@et2 = Etiqueta.new("Pan",4.70,1.00,1.40,1.31,47.50,0.00,0.00,0.00,4.10,7.54,1.1,27.00)
-		expect(@et1.hidratos < @et2.hidratos).to eq(false)
+		expect(@et1.valorEnergeticoKJ < @et2.valorEnergeticoKJ).to eq(false)
 	end
 	it "Mayor >" do
-		@et2 = Etiqueta.new("Pan",4.70,1.00,1.40,1.31,47.50,0.00,0.00,0.00,4.10,7.54,1.1,27.00)
-		expect(@et1.hidratos > @et2.hidratos).to eq(true)
+		expect(@et1.valorEnergeticoKJ > @et2.valorEnergeticoKJ).to eq(true)
 	end
 	it "Igual =" do
-		@et2 = Etiqueta.new("Pan",4.70,1.00,1.40,1.31,47.50,0.00,0.00,0.00,4.10,7.54,1.1,27.00)
-		expect(@et1.hidratos = @et2.hidratos).to eq(false)
+		expect(@et1.valorEnergeticoKJ == @et2.valorEnergeticoKJ).to eq(false)
 	end
   end
 end
