@@ -1,7 +1,10 @@
+# @author Miriam Rodríguez Méndez
+# Clase hija de individuo que representa datos de un paciente
 class Paciente < Individuo
 	
 	include Comparable
 
+	# Permite acceder a las variables
 	attr_accessor :edad, :sexo, :peso, :talla, :circun_cintu, :circun_cadera
 
 	def initialize (nombre, apellidos, edad, sexo, peso, talla, circun_cintu, circun_cadera)
@@ -11,6 +14,9 @@ class Paciente < Individuo
 		@circun_cadera = circun_cadera
 	end
 
+	# Calcula el IMC teniendo en cuenta el peso y la altura
+	#
+	# @return [float] Valor del IMC
 	def imc
 		num = (@peso/(@talla*@talla)).round(2)
 		if num < 18.5
@@ -28,10 +34,16 @@ class Paciente < Individuo
 		end			
 	end
 
+	# Calcula la cantidad de grasa
+	#
+	# @return [float] Valor de la grasa
 	def grasa
 		1.2*imc+0.23*@edad-10.8*@sexo-5.4
 	end
 
+	# Calcula la relación cintura cadera
+	#
+	# @return [float] Valor de RCC dependiendo del sexo
 	def rcc
 		number = (@circun_cintu.to_f/@circun_cadera.to_f).round(2)
 		if @sexo == 0
@@ -56,6 +68,9 @@ class Paciente < Individuo
 					
 	end
 
+	# Calcula el tamaño del pliegue tricipital
+	#
+	# @return [float] Valor del pliegue tricipital
 	def tricipital
 		media = 0.0
 		pliegue = [254,667,335]
@@ -69,6 +84,9 @@ class Paciente < Individuo
 		
 	end
 
+	# Calcula el tamaño del pliegue bicipital
+	#
+	# @return [float] Valor del pliegue bicipital
 	def bicipital
 		media2 = 0.0
 		pliegue2 = [158,332,200]
@@ -81,6 +99,9 @@ class Paciente < Individuo
 		"(#{media2.round(2)})"
 	end
 
+	# Calcula el tamaño del pliegue subescapular
+	#
+	# @return [float] Valor del pliegue subescapular
 	def subescapular
 		media3 = 0.0
 		pliegue3 = [866,541,263]
@@ -93,6 +114,9 @@ class Paciente < Individuo
 		"(#{media3.round(2)})"
 	end
 
+	# Calcula el tamaño del pliegue suprailiaco
+	#
+	# @return [float] Valor del pliegue suprailiaco
 	def suprailiaco
 		media4 = 0.0
 		pliegue4 = [45,89,220]
@@ -105,11 +129,16 @@ class Paciente < Individuo
 		"(#{media4.round(2)})"
 	end
 
+	# Convierte los valores en un string
 	def to_s
 		super().to_s +
 		" -- Talla: #{@talla} -- Circunferencia Cintura: #{@circun_cintu} -- Circunferencia Cadera: #{@circun_cadera}"
 	end
 
+	# Método para poder usar Comparable
+	#
+	# @param aux [Paciente] Objeto de tipo paciente
+	# @return [bool] -1 menor,0 igual, 1 mayor
 	def <=>(aux)
 		self.imc <=> aux.imc
 	end
