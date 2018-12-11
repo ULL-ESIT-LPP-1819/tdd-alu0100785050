@@ -1,27 +1,40 @@
 RSpec.describe Prct06 do
 
   before :each do
-	  @et1 = Etiqueta.new("Bacon","69.30","28.21","27.05","7.19","0.00","0.00","0.00",
-			      "0.00","0.00","14.6","0.6","10.14")
-	   @et2 = Etiqueta.new("Pan",4.70,1.00,1.40,1.31,47.50,0.00,0.00,0.00,4.10,7.54,1.1,27.00)
+	 @et1 = Etiqueta.new("Bacon",69.30,28.21,27.05,7.19,0.00,0.00,0.00,0.00,0.00,14.6,0.6,10.14)
+	 @et2 = Etiqueta.new("Pan",4.70,1.00,1.40,1.31,47.50,0.00,0.00,0.00,4.10,7.54,1.1,27.00)
   	 @et3 = Etiqueta.new("Tofu",4.78,0.69,1.06,2.70,3.30,0.00,0.00,0.00,0.30,8.08,3.80,20.00)
+	 @et4 = Etiqueta.new("Chocolate",23.4,20.00,17.5,40.00,0.00,0.00,0.00,0.00,5.00,3.20,0.00,23.21)
+	 @et5 = Etiqueta.new("Naranja",0.12,0.015,0.023,0.025,11.57,9.35,0.00,0.00,2.4,0.94,0.01,10.25)
+
+	 @paciente1 = Paciente.new("Lucas","Perez",45,1,85,1.78,70,95,0.12)
+         @paciente2 = Paciente.new("Kevin","Garcia",19,1,75,1.80,80,90,0.27)
+         @paciente3 = Paciente.new("Pepe","Lopez",25,1,100,1.67,95,92,0.54)
+         @paciente4 = Paciente.new("Maria","Suarez",30,0,86,1.48,75,80,0.0)
+         @paciente5 = Paciente.new("Lola","Ginebra",12,0,90,1.40,80,85,0.12)
+
+	 @menu1 = Lista.new
+	 @menu2 = Lista.new
+	 @menu3 = Lista.new
+	 @menu4 = Lista.new
+	 @menu5 = Lista.new
   end
 
   describe "Initialize" do
   	it "Atributos bien inicializados" do 
 	  expect(@et1.alimento).to eq("Bacon")
-	  expect(@et1.grasas).to eq("69.30")
-	  expect(@et1.saturadas).to eq("28.21")
-	  expect(@et1.mono).to eq("27.05")
-	  expect(@et1.poli).to eq("7.19")
-	  expect(@et1.hidratos).to eq("0.00")
-	  expect(@et1.azucares).to eq("0.00")
-	  expect(@et1.polial).to eq("0.00")
-	  expect(@et1.almidon).to eq("0.00")
-	  expect(@et1.fibra).to eq("0.00")
-	  expect(@et1.proteinas).to eq("14.6")
-	  expect(@et1.sal).to eq("0.6")
-	  expect(@et1.vitaminas).to eq("10.14")
+	  expect(@et1.grasas).to eq(69.30)
+	  expect(@et1.saturadas).to eq(28.21)
+	  expect(@et1.mono).to eq(27.05)
+	  expect(@et1.poli).to eq(7.19)
+	  expect(@et1.hidratos).to eq(0.00)
+	  expect(@et1.azucares).to eq(0.00)
+	  expect(@et1.polial).to eq(0.00)
+	  expect(@et1.almidon).to eq(0.00)
+	  expect(@et1.fibra).to eq(0.00)
+	  expect(@et1.proteinas).to eq(14.6)
+	  expect(@et1.sal).to eq(0.6)
+	  expect(@et1.vitaminas).to eq(10.14)
 	end
   end
   
@@ -196,6 +209,16 @@ RSpec.describe Prct06 do
 	end
 	it "Mayor o igual >=" do
 		expect(@et1.valorEnergeticoKJ >= @et2.valorEnergeticoKJ).to eq(true)
+	end
+  end
+
+  describe "Menú dietético" do
+  	it "Collect" do
+		@menu1.insert_tail(@et1)
+		@menu1.insert_tail(@et3)
+
+		aux = @menu1.collect{"comida"}
+		expect(aux).to eq(["comida","comida"])	
 	end
   end
 end

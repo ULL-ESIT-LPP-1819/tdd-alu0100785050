@@ -5,13 +5,14 @@ class Paciente < Individuo
 	include Comparable
 
 	# Permite acceder a las variables
-	attr_accessor :edad, :sexo, :peso, :talla, :circun_cintu, :circun_cadera
+	attr_accessor :edad, :sexo, :peso, :talla, :circun_cintu, :circun_cadera, :factor_actividad_fisica
 
-	def initialize (nombre, apellidos, edad, sexo, peso, talla, circun_cintu, circun_cadera)
+	def initialize (nombre, apellidos, edad, sexo, peso, talla, circun_cintu, circun_cadera, factor_actividad_fisica)
 		super(edad,nombre,apellidos,sexo,peso)
 		@talla = talla
 		@circun_cintu = circun_cintu
 		@circun_cadera = circun_cadera
+		@factor_actividad_fisica = factor_actividad_fisica
 	end
 
 	# Calcula el IMC teniendo en cuenta el peso y la altura
@@ -142,4 +143,30 @@ class Paciente < Individuo
 	def <=>(aux)
 		self.imc <=> aux.imc
 	end
+
+	def peso_teorico_ideal
+                return  (@talla-150)*0.75+50
+        end
+
+        def gasto_energetico_basal
+                if(sexo == 0)
+                        return (10*@peso)+(6.25*talla)-(5*@edad)-161
+                elsif(sexo == 1)
+                        return (10*@peso)+(6.25*talla)-(5*@edad)+5
+                end
+        end
+
+        def efecto_termogeno
+                return gasto_energetico_basal*0.10
+        end
+
+        def gasto_actividad_fisica
+                return gasto_energetico_basal*@factor_actividad_fisica
+        end
+
+        def gasto_energetico_total
+                return gasto_energetico_basal+efecto_termogeno+gasto_actividad_fisica
+        end
+
+
 end
