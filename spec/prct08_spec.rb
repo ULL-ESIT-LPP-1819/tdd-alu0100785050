@@ -3,11 +3,11 @@ require "spec_helper"
 RSpec.describe "Test herencia - Paciente" do
 
   before :each do
-    @paciente1 = Paciente.new("Lucas","Perez",45,1,85,1.78,70,95)
-    @paciente2 = Paciente.new("Kevin","Garcia",19,1,75,1.80,80,90)
-    @paciente3 = Paciente.new("Pepe","Lopez",25,1,100,1.67,95,92)
-    @paciente4 = Paciente.new("Maria","Suarez",30,0,86,1.48,75,80)
-    @paciente5 = Paciente.new("Lola","Ginebra",12,0,90,1.40,80,85)
+	  @paciente1 = Paciente.new("Lucas","Perez",45,1,85,1.78,70,95,0.12)
+	  @paciente2 = Paciente.new("Kevin","Garcia",19,1,75,1.80,80,90,0.27)
+	  @paciente3 = Paciente.new("Pepe","Lopez",25,1,100,1.67,95,92,0.54)
+	  @paciente4 = Paciente.new("Maria","Suarez",30,0,86,1.48,75,80,0.0)
+	  @paciente5 = Paciente.new("Lola","Ginebra",12,0,90,1.40,80,85,0.12)
 
     @individuo1 = Individuo.new(45,"Lucas","Perez",1,85)
     @lista = Lista.new

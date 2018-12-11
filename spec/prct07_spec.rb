@@ -11,8 +11,8 @@ RSpec.describe Lista do
 		@et5 = Etiqueta.new("Salsa Barbacoa",1.80,0.30,0.80,0.70,11.60,0.00,0.00,0.00,0.60,1.80,0.8,25.00)
 		@lista_prueba = Lista.new()
 
-		@paciente1 = Paciente.new("Sara","Luis",45,0,85,1.78,70,95)
-                @paciente2 = Paciente.new("Jose","Jimenez",25,1,100,1.67,95,92)
+		@paciente1 = Paciente.new("Sara","Luis",45,0,85,1.78,70,95,0.12)
+		@paciente2 = Paciente.new("Jose","Jimenez",25,1,100,1.67,95,92,0.0)
 	end
 	
 	it "Existe un constructor" do
