@@ -3,7 +3,7 @@ RSpec.describe Prct06 do
   before :each do
 	 @et1 = Etiqueta.new("Bacon",69.30,28.21,27.05,7.19,0.00,0.00,0.00,0.00,0.00,14.6,0.6,10.14)
 	 @et2 = Etiqueta.new("Pan",4.70,1.00,1.40,1.31,47.50,0.00,0.00,0.00,4.10,7.54,1.1,27.00)
-  	 @et3 = Etiqueta.new("Tofu",4.78,0.69,1.06,2.70,3.30,0.00,0.00,0.00,0.30,8.08,3.80,20.00)
+  	 @et3 = Etiqueta.new("Tofu",40.78,0.69,1.06,2.70,3.30,0.00,0.00,0.00,0.30,8.08,3.80,20.00)
 	 @et4 = Etiqueta.new("Chocolate",23.4,20.00,17.5,40.00,0.00,0.00,0.00,0.00,5.00,3.20,0.00,23.21)
 	 @et5 = Etiqueta.new("Naranjas",0.12,0.015,0.023,0.025,11.57,9.35,0.00,0.00,2.4,0.94,0.01,10.25)
 
@@ -219,6 +219,63 @@ RSpec.describe Prct06 do
 
 		aux = @menu1.collect{"comida"}
 		expect(aux).to eq(["comida","comida"])	
+	end
+
+	it "Reduce" do
+		@menu2.insert_tail(@et3)
+		@menu2.insert_tail(@et4)
+
+	end
+
+	it "Comprobar calorias menú" do
+		
+		@menu1.insert_tail(@et1)
+		@menu1.insert_tail(@et2)
+		
+		cal = @paciente1.gasto_energetico_total
+		margenerrorabajo = @menu1.reduce(0) {|sum,n| sum + n.valorEnergeticoKcal*0.9}
+		margenerrorarriba = @menu1.reduce(0) {|sum,n| sum+n.valorEnergeticoKcal*1.1}
+
+		expect(cal.between?(margenerrorabajo,margenerrorarriba)).to eq(false)
+		
+		@menu2.insert_tail(@et4)
+		@menu2.insert_tail(@et2)
+
+		cal2 = @paciente2.gasto_energetico_total
+		margenerrorabajo2 = @menu2.reduce(0) {|sum,n| sum + n.valorEnergeticoKcal*0.9}
+		margenerrorarriba2 = @menu2.reduce(0) {|sum,n| sum+n.valorEnergeticoKcal*1.1}
+
+		expect(cal2.between?(margenerrorabajo2,margenerrorarriba2)).to eq(false)
+
+		@menu3.insert_tail(@et1)
+		@menu3.insert_tail(@et2)
+		
+		cal3 = @paciente3.gasto_energetico_total
+		margenerrorabajo3 = @menu3.reduce(0) {|sum,n| sum + n.valorEnergeticoKcal*0.9}
+		margenerrorarriba3 = @menu3.reduce(0) {|sum,n| sum+n.valorEnergeticoKcal*1.1}
+			
+                expect(cal3.between?(margenerrorabajo3,margenerrorarriba3)).to eq(true)
+
+		@menu4.insert_tail(@et5)
+		@menu4.insert_tail(@et3)
+
+		cal4 = @paciente4.gasto_energetico_total
+		margenerrorabajo4 = @menu4.reduce(0) {|sum,n| sum + n.valorEnergeticoKcal*0.9}
+		margenerrorarriba4 = @menu4.reduce(0) {|sum,n| sum + n.valorEnergeticoKcal*1.1}
+
+		expect(cal4.between?(margenerrorabajo4,margenerrorarriba4)).to eq(true)
+
+		@menu5.insert_tail(@et2)
+		@menu5.insert_tail(@et4)
+		@menu5.insert_tail(@et1)
+
+		cal5 = @paciente5.gasto_energetico_total
+		margenerrorabajo5 = @menu5.reduce(0) {|sum,n| sum + n.valorEnergeticoKcal*0.9}
+		margenerrorarriba5 = @menu5.reduce(0) {|sum,n| sum + n.valorEnergeticoKcal*1.1}
+
+		expect(cal5.between?(margenerrorabajo5,margenerrorarriba5)).to eq(false)
+
+
 	end
   end
 end
