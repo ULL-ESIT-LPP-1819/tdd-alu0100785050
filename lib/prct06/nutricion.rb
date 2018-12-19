@@ -230,6 +230,10 @@ class Etiqueta
 	# @param aux [Etiqueta] Objeto de tipo etiqueta
 	# @return [bool] -1 menor, 0 igual, 1 mayor
 	def <=>(aux)
-		return self.valorEnergeticoKJ <=> aux.valorEnergeticoKJ
+		return self.valorEnergeticoKcal <=> aux.valorEnergeticoKcal
+	end
+
+	def +(other)
+		self.valorEnergeticoKcal.round(2) + other.valorEnergeticoKcal.round(2)
 	end
 end 
