@@ -9,6 +9,7 @@ class Lista
 	attr_accessor :node
 
 	include Enumerable
+	include Comparable
 
 	def initialize
 		@head = nil
@@ -70,18 +71,52 @@ class Lista
 		end
 	end
 
-	def ordenar_for
-	  swapped = true
-	  for i in 0 ...(self.length-1)
-	    swapped = false
-	    for j in 0 ... (self.length-i-1)
-	      if self.extract_head > self[j+1]
-	        self[j] , self[j+1] = self[j+1], self[j]
-		swapped = true
-	      end
-	    end
-	  break if swapped == false
-	  end
-	  return self
+	def sz
+		cont = 0
+		aux = @head
+		while(aux != nil) do
+			cont = cont + 1
+			aux=aux.next
+		end
+		return cont
+	end
+	
+	def to_array_for
+		arr = []
+		aux = @head
+		for i in self do
+			arr.push(aux.value)
+			aux = aux.next
+		end
+		arr.buclesfor
+	end
+
+	def to_array_each
+                arr = []
+                aux = @head
+                for i in self do
+			arr.push(aux.value)
+                        aux = aux.next
+                end
+                arr.ordenar_each
         end
+
+	
+	#def ordenar_for
+	 # swapped = true
+	  #aux = []
+	  #for i in self
+	   # swapped = false
+	    #for j in self
+	      #if j > i
+		#j = j+1 
+		#j+1 = j
+	#	swapped = true
+	#	aux.push(i)
+	      #end
+	    #end
+	 # break if swapped == false
+	  #end
+	  #return aux
+        #end
 end

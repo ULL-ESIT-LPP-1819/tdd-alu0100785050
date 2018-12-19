@@ -114,7 +114,7 @@ RSpec.describe "Test herencia - Paciente" do
 		expect(@paciente1.imc == @paciente2.imc).to eq(false)
 	end
 	it "Between" do
-		expect(@paciente1.between?(@paciente2,@paciente3)).to eq(true)
+		expect(@paciente1.between?(@paciente2,@paciente3)).to eq(false)
 	end
 	it "Mayor o igual >=" do
 		expect(@paciente1.imc >= @paciente2.imc).to eq(true)

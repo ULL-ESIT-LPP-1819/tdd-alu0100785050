@@ -143,7 +143,7 @@ class Paciente < Individuo
 	def <=>(aux)
 		self.imc <=> aux.imc
 	end
-
+	
 	def peso_teorico_ideal
                 return  (@talla-150)*0.75+50
         end
@@ -168,5 +168,8 @@ class Paciente < Individuo
                 return gasto_energetico_basal+efecto_termogeno+gasto_actividad_fisica
         end
 
+	def <=>(other)
+                self.gasto_energetico_total <=> other.gasto_energetico_total
+        end
 
 end
