@@ -70,7 +70,7 @@ class Lista
 		end
 	end
 
-	def buclesfor
-	
+	def ordenar_for
+		
 	end
 end
