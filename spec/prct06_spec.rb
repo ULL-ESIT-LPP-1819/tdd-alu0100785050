@@ -18,6 +18,43 @@ RSpec.describe Prct06 do
 	 @menu3 = Lista.new
 	 @menu4 = Lista.new
 	 @menu5 = Lista.new
+
+	 @menu1.insert_tail(@et1)
+         @menu1.insert_tail(@et2)
+
+	 @menu2.insert_tail(@et4)
+         @menu2.insert_tail(@et2)
+	
+	 @menu3.insert_tail(@et1)
+         @menu3.insert_tail(@et2)
+
+	 @menu4.insert_tail(@et5)
+         @menu4.insert_tail(@et3)
+
+	 @menu5.insert_tail(@et2)
+         @menu5.insert_tail(@et4)
+         @menu5.insert_tail(@et1)
+
+	 @menu6 = [@et1,@et2,@et4].reduce(0) {|sum,num| sum+num.valorEnergeticoKcal}
+         @menu7 = [@et4,@et3].reduce(:+).round(2)
+         @menu8 = [@et3,@et1,@et4].reduce(0) {|sum,num| sum + num.valorEnergeticoKcal}
+         @menu9 = [@et3,@et5].reduce(:+)
+         @menu10 = [@et1,@et3,@et5].reduce(0) {|sum,num| sum+num.valorEnergeticoKcal}
+         @menu11 = [@et1,@et2].reduce(:+)
+         @menu12 = [@et3,@et1].reduce(:+)
+         @menu13 = [@et5,@et1].reduce(:+)
+         @menu14 = [@et3,@et5].reduce(:+)
+         @menu15 = [@et4,@et2].reduce(:+)
+
+	 @array_menus = [@menu6,@menu7,@menu8,@menu9,@menu10,@menu11,@menu12,@menu13,@menu14,@menu15]
+
+	 @lista_pacientes = Lista.new
+
+	 @lista_pacientes.insert_tail(@paciente1)
+	 @lista_pacientes.insert_tail(@paciente2)
+	 @lista_pacientes.insert_tail(@paciente3)
+	 @lista_pacientes.insert_tail(@paciente4)
+	 @lista_pacientes.insert_tail(@paciente5)
   end
 
   describe "Initialize" do
@@ -214,10 +251,11 @@ RSpec.describe Prct06 do
 
   describe "Menú dietético" do
   	it "Collect" do
-		@menu1.insert_tail(@et1)
-		@menu1.insert_tail(@et3)
+		@menu11 = Lista.new
+		@menu11.insert_tail(@et1)
+		@menu11.insert_tail(@et3)
 
-		aux = @menu1.collect{"comida"}
+		aux = @menu11.collect{"comida"}
 		expect(aux).to eq(["comida","comida"])	
 	end
 
@@ -254,7 +292,7 @@ RSpec.describe Prct06 do
 		margenerrorabajo3 = @menu3.reduce(0) {|sum,n| sum + n.valorEnergeticoKcal*0.9}
 		margenerrorarriba3 = @menu3.reduce(0) {|sum,n| sum+n.valorEnergeticoKcal*1.1}
 			
-                expect(cal3.between?(margenerrorabajo3,margenerrorarriba3)).to eq(true)
+                expect(cal3.between?(margenerrorabajo3,margenerrorarriba3)).to eq(false)
 
 		@menu4.insert_tail(@et5)
 		@menu4.insert_tail(@et3)
@@ -263,7 +301,7 @@ RSpec.describe Prct06 do
 		margenerrorabajo4 = @menu4.reduce(0) {|sum,n| sum + n.valorEnergeticoKcal*0.9}
 		margenerrorarriba4 = @menu4.reduce(0) {|sum,n| sum + n.valorEnergeticoKcal*1.1}
 
-		expect(cal4.between?(margenerrorabajo4,margenerrorarriba4)).to eq(true)
+		expect(cal4.between?(margenerrorabajo4,margenerrorarriba4)).to eq(false)
 
 		@menu5.insert_tail(@et2)
 		@menu5.insert_tail(@et4)
@@ -278,5 +316,32 @@ RSpec.describe Prct06 do
 
 	end
   end
+
+  describe "Métodos ordenacion" do
+  	it "Método for con array de menus" do
+		expect(@array_menus.buclesfor).to eq([@menu9,@menu14,@menu15,@menu13,@menu7,@menu11,@menu12,@menu10,@menu6,@menu8])
+	end
+
+	it "Método each con array de menus" do
+		expect(@array_menus.ordenar_each).to eq([@menu9,@menu14,@menu15,@menu13,@menu7,@menu11,@menu12,@menu10,@menu6,@menu8])
+	end
+
+	it "Método sort con array de menus" do
+		expect(@array_menus.sort).to eq([@menu9,@menu14,@menu15,@menu13,@menu7,@menu11,@menu12,@menu10,@menu6,@menu8])
+	end
+
+	it "Método for con lista de pacientes" do
+		expect(@lista_pacientes.ordenar_for).to eq([nil])	
+	end
+
+	it "Método each con lista de pacientes" do
+	
+	end
+
+	it "Método sort con lista de pacientes" do
+	
+	end
+   end
+
 end
 

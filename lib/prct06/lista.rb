@@ -69,4 +69,8 @@ class Lista
 			aux = aux.next
 		end
 	end
+
+	def ordenar_for
+		
+	end
 end
