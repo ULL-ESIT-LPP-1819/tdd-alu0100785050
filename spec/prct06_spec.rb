@@ -35,6 +35,26 @@ RSpec.describe Prct06 do
          @menu5.insert_tail(@et4)
          @menu5.insert_tail(@et1)
 
+	 @menu6 = [@et1,@et2,@et4].reduce(0) {|sum,num| sum+num.valorEnergeticoKcal}
+         @menu7 = [@et4,@et3].reduce(:+).round(2)
+         @menu8 = [@et3,@et1,@et4].reduce(0) {|sum,num| sum + num.valorEnergeticoKcal}
+         @menu9 = [@et3,@et5].reduce(:+)
+         @menu10 = [@et1,@et3,@et5].reduce(0) {|sum,num| sum+num.valorEnergeticoKcal}
+         @menu11 = [@et1,@et2].reduce(:+)
+         @menu12 = [@et3,@et1].reduce(:+)
+         @menu13 = [@et5,@et1].reduce(:+)
+         @menu14 = [@et3,@et5].reduce(:+)
+         @menu15 = [@et4,@et2].reduce(:+)
+
+	 @array_menus = [@menu6,@menu7,@menu8,@menu9,@menu10,@menu11,@menu12,@menu13,@menu14,@menu15]
+
+	 @lista_pacientes = Lista.new
+
+	 @lista_pacientes.insert_tail(@paciente1)
+	 @lista_pacientes.insert_tail(@paciente2)
+	 @lista_pacientes.insert_tail(@paciente3)
+	 @lista_pacientes.insert_tail(@paciente4)
+	 @lista_pacientes.insert_tail(@paciente5)
   end
 
   describe "Initialize" do
@@ -298,22 +318,30 @@ RSpec.describe Prct06 do
   end
 
   describe "Métodos ordenacion" do
-  	it "Método for con array" do
-		@menu6 = [@et1,@et2,@et4].reduce(0) {|sum,num| sum+num.valorEnergeticoKcal}
-		@menu7 = [@et4,@et3].reduce(:+).round(2)
-		@menu8 = [@et3,@et1,@et4].reduce(0) {|sum,num| sum + num.valorEnergeticoKcal}
-		@menu9 = [@et3,@et5].reduce(:+)
-		@menu10 = [@et1,@et3,@et5].reduce(0) {|sum,num| sum+num.valorEnergeticoKcal}
+  	it "Método for con array de menus" do
+		expect(@array_menus.buclesfor).to eq([@menu9,@menu14,@menu15,@menu13,@menu7,@menu11,@menu12,@menu10,@menu6,@menu8])
+	end
 
-		@array_menus = [@menu6,@menu7,@menu8,@menu9,@menu10]
-		
-		expect(@menu6).to eq(2489.3)
-		expect(@menu7).to eq(1406.89)
-		expect(@menu8).to eq(2654.64)
-		expect(@menu9).to eq(569.94)
-		expect(@menu10).to eq(1817.69)
-		expect(@array_menus.buclesfor).to eq([@menu9,@menu7,@menu10,@menu6,@menu8])
+	it "Método each con array de menus" do
+		expect(@array_menus.ordenar_each).to eq([@menu9,@menu14,@menu15,@menu13,@menu7,@menu11,@menu12,@menu10,@menu6,@menu8])
+	end
+
+	it "Método sort con array de menus" do
+		expect(@array_menus.sort).to eq([@menu9,@menu14,@menu15,@menu13,@menu7,@menu11,@menu12,@menu10,@menu6,@menu8])
+	end
+
+	it "Método for con lista de pacientes" do
+		expect(@lista_pacientes.ordenar_for).to eq([nil])	
+	end
+
+	it "Método each con lista de pacientes" do
+	
+	end
+
+	it "Método sort con lista de pacientes" do
+	
 	end
    end
+
 end
 

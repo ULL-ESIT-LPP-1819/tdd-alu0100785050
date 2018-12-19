@@ -14,4 +14,19 @@ class Array
 	    end
 	    return self
 	end
+
+	def ordenar_each
+	  swapped = true
+	  self.each_index do |first|
+	  swapped = false
+	  self.each_index do |second|
+	      if self[first] < self[second]
+		self[first], self[second] = self[second], self[first]
+		swapped = true
+	      end
+	    end
+	  break if swapped == false
+	  end
+	  return self
+	end
 end
