@@ -1,3 +1,5 @@
+require 'benchmark'
+
 RSpec.describe Prct06 do
 
   before :each do
@@ -343,6 +345,20 @@ RSpec.describe Prct06 do
 	it "Método sort con lista de pacientes" do
 		expect(@lista_pacientes.sort{|a,b| a <=> b}).to eq([@paciente4.gasto_energetico_total,@paciente1.gasto_energetico_total,@paciente5.gasto_energetico_total,@paciente2.gasto_energetico_total,@paciente3.gasto_energetico_total])
 	
+	end
+
+	it "Benchmark" do
+		n = 50000
+
+		Benchmark.bm do |x|
+			x.report("array for: ") {n.times do @array_menus.buclesfor; end}
+			x.report("array each: ") {n.times do @array_menus.ordenar_each; end}
+			x.report("array sort: ") {n.times do @array_menus.sort; end}
+			x.report("lista for: ") {n.times do @lista_pacientes.to_array_for; end}
+			x.report("lista each: ") {n.times do @lista_pacientes.to_array_each; end}
+			x.report("lista sort: ") {n.times do @lista_pacientes.sort; end}
+		end
+
 	end
    end
 
