@@ -14,6 +14,11 @@ RSpec.describe Prct06 do
          @paciente3 = Paciente.new("Pepe","Lopez",25,1,100,1.67,95,92,0.54)
          @paciente4 = Paciente.new("Maria","Suarez",30,0,86,1.48,75,80,0.0)
          @paciente5 = Paciente.new("Lola","Ginebra",12,0,90,1.40,80,85,0.12)
+	 @paciente6 = Paciente.new("Lucia","Rodriguez",54,0,85,1.70,84,90,0.12)
+         @paciente7 = Paciente.new("Daniel","Marquez",26,1,75,1.84,85,94,0.27)
+         @paciente8 = Paciente.new("Juan","Luis",30,1,120,1.70,91,90,0.54)
+         @paciente9 = Paciente.new("Marta","Díaz",37,0,86,1.52,77,88,0.0)
+         @paciente10 = Paciente.new("Sara","Carrasco",15,0,90,1.72,87,90,0.12)
 
 	 @menu1 = Lista.new
 	 @menu2 = Lista.new
@@ -52,11 +57,16 @@ RSpec.describe Prct06 do
 
 	 @lista_pacientes = Lista.new
 
-	 @lista_pacientes.insert_tail(@paciente1.gasto_energetico_total)
-	 @lista_pacientes.insert_tail(@paciente2.gasto_energetico_total)
-	 @lista_pacientes.insert_tail(@paciente3.gasto_energetico_total)
-	 @lista_pacientes.insert_tail(@paciente4.gasto_energetico_total)
-	 @lista_pacientes.insert_tail(@paciente5.gasto_energetico_total)
+	 @lista_pacientes.insert_tail(@paciente1)
+	 @lista_pacientes.insert_tail(@paciente2)
+	 @lista_pacientes.insert_tail(@paciente3)
+	 @lista_pacientes.insert_tail(@paciente4)
+	 @lista_pacientes.insert_tail(@paciente5)
+	 @lista_pacientes.insert_tail(@paciente6)
+	 @lista_pacientes.insert_tail(@paciente7)
+	 @lista_pacientes.insert_tail(@paciente8)
+	 @lista_pacientes.insert_tail(@paciente9)
+	 @lista_pacientes.insert_tail(@paciente10)
 
   end
 
@@ -334,16 +344,16 @@ RSpec.describe Prct06 do
 	end
 
 	it "Método for con lista de pacientes" do
-		expect(@lista_pacientes.to_array_for).to eq([@paciente4.gasto_energetico_total,@paciente1.gasto_energetico_total,@paciente5.gasto_energetico_total,@paciente2.gasto_energetico_total,@paciente3.gasto_energetico_total])
+		expect(@lista_pacientes.to_array_for).to eq([@paciente6,@paciente9,@paciente4,@paciente1,@paciente10,@paciente5,@paciente7,@paciente2,@paciente3,@paciente8])
 	end
 
 	it "Método each con lista de pacientes" do
-		expect(@lista_pacientes.to_array_each).to eq([@paciente4.gasto_energetico_total,@paciente1.gasto_energetico_total,@paciente5.gasto_energetico_total,@paciente2.gasto_energetico_total,@paciente3.gasto_energetico_total])
+		expect(@lista_pacientes.to_array_each).to eq([@paciente6,@paciente9,@paciente4,@paciente1,@paciente10,@paciente5,@paciente7,@paciente2,@paciente3,@paciente8])
 
 	end
 
 	it "Método sort con lista de pacientes" do
-		expect(@lista_pacientes.sort{|a,b| a <=> b}).to eq([@paciente4.gasto_energetico_total,@paciente1.gasto_energetico_total,@paciente5.gasto_energetico_total,@paciente2.gasto_energetico_total,@paciente3.gasto_energetico_total])
+		expect(@lista_pacientes.sort{|a,b| a <=> b}).to eq([@paciente6,@paciente9,@paciente4,@paciente1,@paciente10,@paciente5,@paciente7,@paciente2,@paciente3,@paciente8])
 	
 	end
 
