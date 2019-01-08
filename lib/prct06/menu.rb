@@ -4,7 +4,9 @@ class Menu
 	def initialize(dia,&block)
 		@dia = dia
 		@ingesta = []
-		@descripcion = []
+		@desayuno = []
+		@cena = []
+		@almuerzo = []
 
 		if block_given?
 		  if block.arity == 1
@@ -16,17 +18,67 @@ class Menu
 	end
 
 	def to_s
-		output = @nombre
-		output << "\n#{'=' * @nombre.size}\n\n"
-		output << "Composición nutricional\n"
+		vet = 0
+		output = @dia
+		output << "                          Composición Nutricional\n"
+		output << "===========================================================\n"
+		output << "                          grasas  carbohidratos  proteínas  fibra  sal  valor energético\n"
+		output << "Desayuno\n"
+		@desayuno.each do |alimento|
+			vet += valor_energetico(alimento)
+			output << "*#{alimento[:descripcion]}*      "
+			output << "#{alimento[:grasas]}        "
+			output << "#{alimento[:carbohidratos]}        "
+			output << "#{alimento[:proteinas]}        "
+			output << "#{alimento[:fibra]}     "
+			output << "#{alimento[:sal]}	"
+			output << "#{valor_energetico(alimento)}    \n"
+			 
+		end
+
+		output << "\nAlmuerzo\n"
+		@almuerzo.each do |alimento|
+			vet += valor_energetico(alimento)
+			output << "*#{alimento[:descripcion]}*            "
+                        output << "#{alimento[:grasas]}          "
+                        output << "#{alimento[:carbohidratos]}        "
+                        output << "#{alimento[:proteinas]}        "
+                        output << "#{alimento[:fibra]}        "
+                        output << "#{alimento[:sal]}        "
+			output << "#{valor_energetico(alimento)}   \n"
+
+		end
+		
+		output << "\nCena\n"
+		@cena.each do |alimento|
+			vet += valor_energetico(alimento)
+                        output << "*#{alimento[:descripcion]}*  "
+                        output << "#{alimento[:grasas]}      "
+                        output << "#{alimento[:carbohidratos]}     "
+                        output << "#{alimento[:proteinas]}       "
+                        output << "#{alimento[:fibra]}      "
+                        output << "#{alimento[:sal]}      "
+			output << "#{valor_energetico(alimento)}   \n"
+
+                end
+
+		output << "Valor energético total   "
+		output << "#{vet}"
+
+
+		output
 	end
 
-#	def titulo(nom)
-#		nombr = nom
-#		nombr << ""
-#
-#		@nombre << nombr
-#	end
+	def valor_energetico(comida)
+		kcal = comida[:grasas] * 0.9
+		kcal += comida[:carbohidratos] * 0.4
+		kcal += comida[:proteinas] * 0.4
+		  kcal.round(2)
+	end
+
+	def titulo(nom)
+		nombr = nom
+	end
 
 	def ingesta(ing, options = {})
 		ingest = ing
@@ -36,45 +88,45 @@ class Menu
 		@ingesta << ingest
 	end
 
-	def desayuno(descr, options = {})
-		alimento = descr
-		alimento << "(#{options[:descripcion]})" if options[:descripcion]
-		alimento << "(#{options[:porcion]})" if options[:porcion]
-		alimento << "(#{options[:gramos]})" if options[:gramos]
-		alimento << "(#{options[:grasas]})" if options[:grasas]
-		alimento << "(#{options[:carbohidratos]})" if options[:carbohidratos]
-		alimento << "(#{options[:proteinas]})" if options[:proteinas]
-		alimento << "(#{options[:fibra]})" if options[:fibra]
-		alimento << "(#{options[:sal]})" if options[:sal]
+	def desayuno(des, options = {})
+		bf = des
+		bf << "(#{options[:descripcion]})" if options[:descripcion]
+		bf << "(#{options[:porcion]})" if options[:porcion]
+		bf << "(#{options[:gramos]})" if options[:gramos]
+		bf << "(#{options[:grasas]})" if options[:grasas]
+		bf << "(#{options[:carbohidratos]})" if options[:carbohidratos]
+		bf << "(#{options[:proteinas]})" if options[:proteinas]
+		bf << "(#{options[:fibra]})" if options[:fibra]
+		bf << "(#{options[:sal]})" if options[:sal]
 
-		@descripcion << alimento
+		@desayuno << bf
 	end
 
-	def almuerzo(descr, options = {})
-                alimento = descr
-                alimento << "(#{options[:descripcion]})" if options[:descripcion]
-                alimento << "(#{options[:porcion]})" if options[:porcion]
-                alimento << "(#{options[:gramos]})" if options[:gramos]
-                alimento << "(#{options[:grasas]})" if options[:grasas]
-                alimento << "(#{options[:carbohidratos]})" if options[:carbohidratos]
-                alimento << "(#{options[:proteinas]})" if options[:proteinas]
-                alimento << "(#{options[:fibra]})" if options[:fibra]
-                alimento << "(#{options[:sal]})" if options[:sal]
+	def almuerzo(al, options = {})
+                lunch = al
+                lunch << "(#{options[:descripcion]})" if options[:descripcion]
+                lunch << "(#{options[:porcion]})" if options[:porcion]
+                lunch << "(#{options[:gramos]})" if options[:gramos]
+                lunch << "(#{options[:grasas]})" if options[:grasas]
+                lunch << "(#{options[:carbohidratos]})" if options[:carbohidratos]
+                lunch << "(#{options[:proteinas]})" if options[:proteinas]
+                lunch << "(#{options[:fibra]})" if options[:fibra]
+                lunch << "(#{options[:sal]})" if options[:sal]
 
-                @descripcion << alimento
+                @almuerzo << lunch
         end
 
-	def cena(descr, options = {})
-                alimento = descr
-                alimento << "(#{options[:descripcion]})" if options[:descripcion]
-                alimento << "(#{options[:porcion]})" if options[:porcion]
-                alimento << "(#{options[:gramos]})" if options[:gramos]
-                alimento << "(#{options[:grasas]})" if options[:grasas]
-                alimento << "(#{options[:carbohidratos]})" if options[:carbohidratos]
-                alimento << "(#{options[:proteinas]})" if options[:proteinas]
-                alimento << "(#{options[:fibra]})" if options[:fibra]
-                alimento << "(#{options[:sal]})" if options[:sal]
+	def cena(ce, options = {})
+                din = ce 
+                din << "(#{options[:descripcion]})" if options[:descripcion]
+                din << "(#{options[:porcion]})" if options[:porcion]
+                din << "(#{options[:gramos]})" if options[:gramos]
+                din << "(#{options[:grasas]})" if options[:grasas]
+                din << "(#{options[:carbohidratos]})" if options[:carbohidratos]
+                din << "(#{options[:proteinas]})" if options[:proteinas]
+                din << "(#{options[:fibra]})" if options[:fibra]
+                din << "(#{options[:sal]})" if options[:sal]
 
-                @descripcion << alimento
+                @cena << din
         end
 end
