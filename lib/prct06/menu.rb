@@ -31,8 +31,8 @@ class Menu
 			output << "#{alimento[:carbohidratos]}        "
 			output << "#{alimento[:proteinas]}        "
 			output << "#{alimento[:fibra]}     "
-			output << "#{alimento[:sal]}	"
-			output << "#{valor_energetico(alimento)}    \n"
+			output << "#{alimento[:sal]}    "
+			output << "#{valor_energetico(alimento)}\n"
 			 
 		end
 
@@ -45,7 +45,7 @@ class Menu
                         output << "#{alimento[:proteinas]}        "
                         output << "#{alimento[:fibra]}        "
                         output << "#{alimento[:sal]}        "
-			output << "#{valor_energetico(alimento)}   \n"
+			output << "#{valor_energetico(alimento)}\n"
 
 		end
 		
@@ -58,7 +58,7 @@ class Menu
                         output << "#{alimento[:proteinas]}       "
                         output << "#{alimento[:fibra]}      "
                         output << "#{alimento[:sal]}      "
-			output << "#{valor_energetico(alimento)}   \n"
+			output << "#{valor_energetico(alimento)}\n"
 
                 end
 

@@ -421,9 +421,22 @@ RSpec.describe Prct06 do
 				:proteinas => 3.1,
 				:sal => 0.13
 	end
+
    	it "Método to_s" do
-		expect(menu.to_s).to eq("Lunes")	
-	end
-   end
+		expect(menu.to_s).to eq("Lunes                          Composición Nutricional\n" +
+					"===========================================================\n" +
+ 					"                          grasas  carbohidratos  proteínas  fibra  sal  valor energético\n" + 
+					"Desayuno\n" +
+					"*Pan de trigo integral*      3.3        54.0        11.0        2.3     0.06    28.97\n" +
+					"*Actimel*      3.4        4.4        3.6             0.05    6.26\n" +
+					"\nAlmuerzo\n" +
+					"*Arroz*            0.9          81.6        6.67        1.4        0.04        36.12\n" + 
+					"*Lentejas*            0.4          20.0        9.0        8.0        0.02        11.96\n" +
+					"*Naranja*            0.12          11.75        0.94        2.4                5.18\n" +
+					"\nCena\n" +
+					"*Leche entera hacendado*  3.6      4.6     3.1             0.13      6.32\n" +
+					"Valor energético total   94.81")	
+		end
+   	end
 end
 
