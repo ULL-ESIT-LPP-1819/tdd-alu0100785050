@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    prct06 (0.1.0)
+    miriamrguez (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -103,7 +103,7 @@ DEPENDENCIES
   guard
   guard-bundler
   guard-rspec
-  prct06!
+  miriamrguez!
   rake (~> 10.0)
   rspec (~> 3.0)
 
